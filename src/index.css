@@ -1,0 +1,105 @@
+/* Polices en tout premier : Tailwind doit rester juste en dessous. */
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* ════════════════════════════════════════════════════════════════════════
+   FRELAR CORP — CYBERSPACE
+   L'interface est claire et calme ; l'intensité est réservée à la scène 3D,
+   qui reste sur son fond d'encre. Le rouge FRELAR ne sert qu'aux actions et
+   aux repères — jamais à décorer.
+   ════════════════════════════════════════════════════════════════════════ */
+:root {
+  /* Surfaces */
+  --fc-bg: #f4f6f8;
+  --fc-surface: #ffffff;
+  --fc-surface-2: #eef1f5;
+  --fc-border: #e2e6ec;
+  --fc-border-strong: #cbd2dc;
+  /* Texte */
+  --fc-ink: #101722;
+  --fc-text: #46505e;
+  --fc-muted: #6d7784;
+  /* Marque */
+  --fc-red: #e30613;
+  --fc-red-dark: #b8000e;
+  --fc-red-soft: #fdecee;
+  /* Fond de la scène 3D : la même encre que la couleur de fond du rendu. */
+  --fc-stage: #03060c;
+  --fc-shadow: 0 1px 2px rgba(16, 23, 34, 0.04), 0 10px 26px -14px rgba(16, 23, 34, 0.16);
+  --fc-shadow-lg: 0 2px 4px rgba(16, 23, 34, 0.05), 0 18px 40px -18px rgba(16, 23, 34, 0.22);
+  /* Rythme typographique fluide */
+  --fc-unit: min(1vw, 1.5vh);
+  --fc-h1: clamp(1.45rem, calc(1rem + 1.9 * var(--fc-unit)), 2.4rem);
+  --fc-h2: clamp(1.05rem, calc(0.85rem + 0.9 * var(--fc-unit)), 1.4rem);
+  --fc-body: clamp(0.84rem, calc(0.78rem + 0.25 * var(--fc-unit)), 0.95rem);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c8cfd9 transparent;
+}
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #ced5df;
+  border-radius: 999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #aeb7c4;
+}
+html,
+body,
+#root {
+  height: 100%;
+}
+body {
+  margin: 0;
+  background: var(--fc-bg);
+  color: var(--fc-text);
+  font-family: 'Chakra Petch', system-ui, -apple-system, sans-serif;
+  font-size: var(--fc-body);
+  -webkit-font-smoothing: antialiased;
+  overscroll-behavior: none;
+}
+::selection {
+  background: rgba(227, 6, 19, 0.14);
+  color: var(--fc-ink);
+}
+.font-display {
+  font-family: 'Chakra Petch', system-ui, sans-serif;
+}
+.font-mono-tech {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+/* Anneau de focus unique : rouge FRELAR, lisible sur clair comme sur sombre. */
+:focus-visible {
+  outline: 2px solid var(--fc-red);
+  outline-offset: 2px;
+}
+/* Voile de la scène 3D : il recentre le regard sur la pièce, rien de plus. */
+.fc-vignette {
+  background: radial-gradient(120% 110% at 50% 45%, rgba(3, 6, 12, 0) 52%, rgba(3, 6, 12, 0.72) 100%);
+}
+.fc-no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.fc-no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
+}
